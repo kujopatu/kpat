@@ -1,6 +1,21 @@
 import React, { useState } from "react";
 const currentYear = new Date().getFullYear();
 
+
+import emailjs from "emailjs-com";
+const [form, setForm] = useState({ name: "", email: "", message: "" });
+const [success, setSuccess] = useState(false);
+const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+const handleSubmit = (e) => {
+  e.preventDefault();
+  emailjs.send("service_9v51tgf", "template_ol3r2oc", form, "8E7w2GqG16qa5loyT")
+    .then(() => {
+      setSuccess(true);
+      setForm({ name: "", email: "", message: "" });
+      setTimeout(() => setSuccess(false), 5000);
+    }).catch(() => alert("Failed to send message"));
+};
+
 export default function App() {
   const [dark, setDark] = useState(false);
   const toggleDark = () => setDark(!dark);
@@ -58,8 +73,24 @@ export default function App() {
           <blockquote className="italic">"Kujo is reliable and highly professional." – A. Client</blockquote>
         </section>
 
+        
         <section>
-          <h3 className="text-2xl font-semibold mb-2">Contact</h3>
+          <h3 className="text-2xl font-semibold mb-4">Contact Me</h3>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input type="text" name="name" placeholder="Your Name" required
+              value={form.name} onChange={handleChange}
+              className="w-full px-4 py-2 border rounded text-black" />
+            <input type="email" name="email" placeholder="Your Email" required
+              value={form.email} onChange={handleChange}
+              className="w-full px-4 py-2 border rounded text-black" />
+            <textarea name="message" rows="4" placeholder="Your Message" required
+              value={form.message} onChange={handleChange}
+              className="w-full px-4 py-2 border rounded text-black"></textarea>
+            <button type="submit" className="bg-orange-600 text-white px-6 py-2 rounded">Send</button>
+            {success && <p className="text-green-400 pt-2">✅ Message sent successfully!</p>}
+          </form>
+        </section>
+
           <div className="space-x-4">
             <a href="https://wa.me/2348034445666" className="bg-green-600 text-white px-4 py-2 rounded" target="_blank">WhatsApp</a>
             <a href="https://calendly.com/sincereemmy" className="bg-blue-600 text-white px-4 py-2 rounded" target="_blank">Book on Calendly</a>
