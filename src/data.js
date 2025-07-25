@@ -1,0 +1,4 @@
+export const services = ["General Supplies & Distribution", "Logistics & Warehouse Management", "Web Development", "IT Consulting", "Product Distribution", "Data Analytics & Dashboards"];
+export const projects = [{ title: "Inventory Tracker", description: "Warehouse system", type: "Logistics" }, { title: "React Portfolio Website", description: "Personal portfolio with Tailwind", type: "Tech" }, { title: "Logistics Dashboard", description: "Dashboard for supply chains", type: "Logistics" }];
+export const blogs = [{ title: "Building with Tailwind", summary: "Tips for efficient design" }, { title: "React Contact Forms", summary: "Handling forms and EmailJS" }, { title: "Warehouse Management Tools", summary: "Modern logistics tech" }];
+export const testimonials = [{ quote: "Kujo is a true professional and a great team player!", author: "A. Client" }];
