@@ -87,11 +87,12 @@ export default function App() {
               value={form.message} onChange={handleChange}
               className="w-full px-4 py-2 border rounded text-black"></textarea>
             <button type="submit" className="bg-orange-600 text-white px-6 py-2 rounded">Send</button>
-            {success && <p className="text-green-400 pt-2">✅ Message sent successfully!</p>}
+            {success ? <p className="text-green-400 pt-2">✅ Message sent successfully!</p> : null}
           </form>
+
         </section>
 
-          <div className="space-x-4">
+          <div className="space-x-4 mb-8">
             <a href="https://wa.me/2348034445666" className="bg-green-600 text-white px-4 py-2 rounded" target="_blank">WhatsApp</a>
             <a href="https://calendly.com/sincereemmy" className="bg-blue-600 text-white px-4 py-2 rounded" target="_blank">Book on Calendly</a>
           </div>
